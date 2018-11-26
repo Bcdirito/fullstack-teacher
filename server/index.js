@@ -2,9 +2,18 @@ const express = require('express')
 const server = express()
 
 //MIDDLEWARE SECTION
+//imports body-parser
 const parser = require('body-parser')
+//tells body parser to use JSON when looking at the body of ajax calls
 server.use(parser.json())
-server.use(express.static(__dirname + '/../client/dist/index.html'))
+
+//express.static tells express what file needs to be served up when the 
+//client goes to the base '/' page.
+//direct it towards the index.html that the react app is attaching itself to
+
+//__dirname represents the filepath on the local computer to THIS file
+
+server.use(express.static(__dirname + '/../client/dist/'))
 
 
 //this handles any get request sent to the server's restful endpoint, 'allToDos'
@@ -35,7 +44,9 @@ server.post('/newToDo', (req, res) => {
     res.send('saved to the database!')
 })
 
+//sets up the port number for the local host
 const port = 8080
+//starts the server on that given port
 server.listen(port, () => {
     console.log(`server is now listening on port ${port}`)
 })

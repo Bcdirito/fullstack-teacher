@@ -3,7 +3,7 @@ import React from 'react'
 class ToDoList extends React.Component {
     constructor(props) {
         super(props)
-        state = {
+        this.state = {
             //some state
         }
     }
