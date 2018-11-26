@@ -1,5 +1,6 @@
 import React from "react"
 import ToDoList from './ToDoList.jsx'
+const axios = require('axios')
 
 class App extends React.Component {
     constructor(props) {
@@ -8,6 +9,14 @@ class App extends React.Component {
             currentInput: '',
             toDos: []
         }
+    }
+
+    getTasks() {
+        axios.get('allToDos')
+             .then((response) => {
+                 let tasks = response.data
+                 this.setState({toDos: tasks})
+             })
     }
 
     render() {
