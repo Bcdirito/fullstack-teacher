@@ -1,4 +1,5 @@
 import React from "react"
+import ToDoList from './ToDoList.jsx'
 
 class App extends React.Component {
     constructor(props) {
@@ -18,6 +19,7 @@ class App extends React.Component {
                 <br/>
                 <br/>
                 Current To Dos:
+                <ToDoList />
             </div>
         )
     }
